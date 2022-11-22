@@ -28,6 +28,7 @@ class Laptop(models.Model):
   status = models.BooleanField(default=True) # is it Sold or Available for sale
   price = models.IntegerField()
   quantity = models.IntegerField(default=1)
+  created = models.DateTimeField(auto_now_add=True)
 
   class Meta:
     verbose_name_plural = 'laptops'
