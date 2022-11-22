@@ -1,0 +1,13 @@
+{% extends "laptop/base.html" %}
+
+{% block content %}
+  <ul>
+    {% for laptop in laptops %}
+      <li>
+        <a href="{% url 'laptop:item' laptop.id %}">
+          {{laptop}}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock content %}
