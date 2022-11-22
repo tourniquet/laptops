@@ -7,3 +7,8 @@ def index(request):
   context = {'laptops': laptops}
   return render(request, 'laptop/index.html', context)
 
+
+def item(request, id):
+  item = Laptop.objects.get(id=id)
+  context = {'item': item}
+  return render(request, 'laptop/item.html', context)
