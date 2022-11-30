@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 class Brand(models.Model):
   name = models.CharField(max_length=20, unique=True)
@@ -29,6 +30,12 @@ class Laptop(models.Model):
   price = models.IntegerField()
   quantity = models.IntegerField(default=1)
   created = models.DateTimeField(auto_now_add=True)
+  link = models.CharField(max_length=200) # this one may be temporary for using links to Marketplace
+  slug = models.SlugField(default='', null=False) # urls like 'hp-pavilion-dv-6-45', where 45 is listing id
+
+  def save(self, *args, **kwargs):
+    self.slug = slugify(self.title)
+    super().save(*args, **kwargs)
 
   class Meta:
     verbose_name_plural = 'laptops'
