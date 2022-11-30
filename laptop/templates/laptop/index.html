@@ -1,13 +1,21 @@
 {% extends "laptop/base.html" %}
+{% load static %}
 
 {% block content %}
-  <ul>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
     {% for laptop in laptops %}
-      <li>
-        <a href="{% url 'laptop:item' laptop.id %}">
-          {{laptop}}
-        </a>
-      </li>
+      <a href="{{laptop.link}}" target="_blank">
+        <div class="col">
+          <div class="card h-100">
+            <img src="{% static "thumbnail.jpg" %}" class="card-img-top" alt="{{ laptop.title }}">
+            <div class="card-body">
+              <h5 class="card-title">£{{laptop.price}}</h5>
+              <h5 class="card-title">{{laptop.title}}</h5>
+              <p class="card-text">Bromley, England</p>
+            </div>
+          </div>
+        </div>
+      </a>
     {% endfor %}
-  </ul>
+  </div>
 {% endblock content %}

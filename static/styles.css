@@ -1,0 +1,8 @@
+@import "header.css";
+@import "footer.css";
+
+body {
+  float: none;
+  margin: 0 auto;
+  max-width: 1080px;
+}
