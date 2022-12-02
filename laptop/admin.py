@@ -1,12 +1,10 @@
 from django.contrib import admin
 
-from .models import Brand, Model, Laptop
-
 admin.site.register(Brand)
-admin.site.register(Model)
+from .models import Brand, Laptop
 
 class LaptopAdmin(admin.ModelAdmin):
   prepopulated_fields = {"slug": ("title",)}
-  list_filter = ('model', 'status',)
+  list_filter = ('brand', 'status',)
 
 admin.site.register(Laptop, LaptopAdmin)
