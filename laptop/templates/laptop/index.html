@@ -1,5 +1,4 @@
 {% extends "laptop/base.html" %}
-{% load static %}
 
 {% block content %}
   <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -7,7 +6,7 @@
       <a href="{{laptop.link}}" target="_blank">
         <div class="col">
           <div class="card h-100">
-            <img src="{% static "thumbnail.jpg" %}" class="card-img-top" alt="{{ laptop.title }}">
+            <img src="{{ laptop.image }}" class="card-img-top" alt="{{ laptop.title }}">
             <div class="card-body">
               <h5 class="card-title">£{{laptop.price}}</h5>
               <h5 class="card-title">{{laptop.title}}</h5>
